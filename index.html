@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2048 Oyunu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <header class="game-header">
+      <h1>2048</h1>
+      <div class="game-controls">
+        <button id="undo-btn" class="btn btn-secondary" aria-label="Son hamleyi geri al">
+          <span class="btn-icon">↩️</span>
+          Geri Al
+        </button>
+        <button id="restart-btn" class="btn btn-primary" aria-label="Oyunu yeniden başlat">
+          <span class="btn-icon">🔄</span>
+          Yeniden Başlat
+        </button>
+        <button id="sound-toggle" class="btn btn-secondary" aria-label="Ses efektlerini aç/kapat">
+          <span class="btn-icon" id="sound-icon">🔊</span>
+          <span class="btn-text">Ses</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="score-container">
+      <div class="score-box">
+        <div class="score-label">Skor</div>
+        <div id="score" class="score-value">0</div>
+      </div>
+      <div class="score-box">
+        <div class="score-label">En Yüksek</div>
+        <div id="highscore" class="score-value">0</div>
+      </div>
+    </div>
+
+    <div id="game-board" class="game-board" role="grid" aria-label="2048 oyun tahtası">
+      <!-- Hücreler JavaScript ile oluşturulacak -->
+    </div>
+
+    <div class="game-info">
+      <p class="instructions">
+        <strong>Nasıl Oynanır:</strong> Aynı sayıları birleştirerek 2048'e ulaşın!<br>
+        <strong>Klavye:</strong> Ok tuşları | <strong>Dokunmatik:</strong> Kaydırma hareketleri
+      </p>
+      
+      <div class="game-settings">
+        <label for="theme-select">Tema:</label>
+        <select id="theme-select" class="theme-select">
+          <option value="default">Varsayılan</option>
+          <option value="dark">Karanlık</option>
+          <option value="ocean">Okyanus</option>
+          <option value="nature">Doğa</option>
+          <option value="purple">Mor</option>
+        </select>
+        
+        <button id="stats-btn" class="btn btn-secondary" aria-label="İstatistikleri göster">
+          <span class="btn-icon">📊</span>
+          İstatistik
+        </button>
+      </div>
+    </div>
+
+    <div id="game-over-modal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <h2>Oyun Bitti!</h2>
+        <p>Skorun: <span id="final-score">0</span></p>
+        <button id="play-again-btn" class="btn btn-primary">Tekrar Oyna</button>
+      </div>
+    </div>
+
+    <div id="stats-modal" class="modal" style="display: none;">
+      <div class="modal-content stats-modal">
+        <h2>İstatistikler & Başarımlar</h2>
+        
+        <div class="stats-tabs">
+          <button class="tab-btn active" data-tab="stats">İstatistikler</button>
+          <button class="tab-btn" data-tab="achievements">Başarımlar</button>
+        </div>
+        
+        <div id="stats-tab" class="tab-content active">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <h3>Toplam Oyun</h3>
+              <p id="total-games">0</p>
+            </div>
+            <div class="stat-item">
+              <h3>Kazanma</h3>
+              <p id="wins">0</p>
+            </div>
+            <div class="stat-item">
+              <h3>En İyi Skor</h3>
+              <p id="best-score">0</p>
+            </div>
+            <div class="stat-item">
+              <h3>En Yüksek Taş</h3>
+              <p id="highest-tile">0</p>
+            </div>
+            <div class="stat-item">
+              <h3>Ortalama Skor</h3>
+              <p id="avg-score">0</p>
+            </div>
+            <div class="stat-item">
+              <h3>Toplam Süre</h3>
+              <p id="total-time">00:00</p>
+            </div>
+          </div>
+        </div>
+        
+        <div id="achievements-tab" class="tab-content">
+          <div id="achievements-list" class="achievements-list">
+            <!-- Başarımlar JavaScript ile doldurulacak -->
+          </div>
+        </div>
+        
+        <button id="close-stats-btn" class="btn btn-primary">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
